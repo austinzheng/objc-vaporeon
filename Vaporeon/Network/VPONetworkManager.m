@@ -11,8 +11,6 @@
 #import <mach/mach.h>
 #import <mach/mach_port.h>
 
-#import "network_handler.h"
-
 
 @interface VPONetworkManager () <NSPortDelegate>
 @property (nonatomic, strong) NSPort *port;
@@ -32,7 +30,7 @@
 }
 
 - (void)setupPort {
-    mach_port_name_t p;
+    mach_port_name_t p = MACH_PORT_NULL;
     ipc_space_t task = mach_task_self();
     kern_return_t r = mach_port_allocate(task, MACH_PORT_RIGHT_RECEIVE, &p);
 //    kern_return_t r = mach_port_allocate_full(task,

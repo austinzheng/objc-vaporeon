@@ -16,16 +16,12 @@
 
 void perform_run();
 
-int main(int argc, const char * argv[])
-{
-
+int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSLog(@"Server starting...");
         
         VPONetworkManager *manager = [VPONetworkManager sharedInstance];
-        nh_get_receive_port();
+//        nh_get_receive_port();
         
         dispatch_queue_t network_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), network_queue, ^{
