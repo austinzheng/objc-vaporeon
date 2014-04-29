@@ -10,6 +10,8 @@
 		1ADB8B06190F5C81001D3F0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADB8B05190F5C81001D3F0E /* Foundation.framework */; };
 		1ADB8B09190F5C81001D3F0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB8B08190F5C81001D3F0E /* main.m */; };
 		1ADB8B0D190F5C81001D3F0E /* Vaporeon.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1ADB8B0C190F5C81001D3F0E /* Vaporeon.1 */; };
+		1ADB8B15190F6249001D3F0E /* network_handler.c in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB8B14190F6249001D3F0E /* network_handler.c */; };
+		1ADB8B1A190F6B74001D3F0E /* VPONetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADB8B19190F6B74001D3F0E /* VPONetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,10 @@
 		1ADB8B08190F5C81001D3F0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1ADB8B0B190F5C81001D3F0E /* Vaporeon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vaporeon-Prefix.pch"; sourceTree = "<group>"; };
 		1ADB8B0C190F5C81001D3F0E /* Vaporeon.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Vaporeon.1; sourceTree = "<group>"; };
+		1ADB8B14190F6249001D3F0E /* network_handler.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = network_handler.c; path = Network/network_handler.c; sourceTree = "<group>"; };
+		1ADB8B16190F6996001D3F0E /* network_handler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = network_handler.h; path = Network/network_handler.h; sourceTree = "<group>"; };
+		1ADB8B18190F6B74001D3F0E /* VPONetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VPONetworkManager.h; path = Network/VPONetworkManager.h; sourceTree = "<group>"; };
+		1ADB8B19190F6B74001D3F0E /* VPONetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VPONetworkManager.m; path = Network/VPONetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 		1ADB8B07190F5C81001D3F0E /* Vaporeon */ = {
 			isa = PBXGroup;
 			children = (
+				1ADB8B13190F620D001D3F0E /* Network */,
 				1ADB8B08190F5C81001D3F0E /* main.m */,
 				1ADB8B0C190F5C81001D3F0E /* Vaporeon.1 */,
 				1ADB8B0A190F5C81001D3F0E /* Supporting Files */,
@@ -86,6 +93,17 @@
 				1ADB8B0B190F5C81001D3F0E /* Vaporeon-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1ADB8B13190F620D001D3F0E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1ADB8B16190F6996001D3F0E /* network_handler.h */,
+				1ADB8B14190F6249001D3F0E /* network_handler.c */,
+				1ADB8B18190F6B74001D3F0E /* VPONetworkManager.h */,
+				1ADB8B19190F6B74001D3F0E /* VPONetworkManager.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADB8B1A190F6B74001D3F0E /* VPONetworkManager.m in Sources */,
 				1ADB8B09190F5C81001D3F0E /* main.m in Sources */,
+				1ADB8B15190F6249001D3F0E /* network_handler.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +242,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vaporeon/Vaporeon-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -231,6 +252,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vaporeon/Vaporeon-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
