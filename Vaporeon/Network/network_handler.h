@@ -14,7 +14,9 @@
 mach_port_name_t nh_get_receive_port();
 void nh_set_remote_port(mach_port_name_t p);
 
-// TODO: remove this
+void start(in_addr_t addr, in_port_t port);
+
+// TODO: remove these
 void nh_run_handler();
 
 #endif
