@@ -97,10 +97,11 @@ void run(int descriptor) {
                 goto RUN_FAIL;
             }
             // Make socket nonblocking
-            if (-1 == fcntl(sock_fd, F_SETFL, fcntl(sock_fd, F_GETFL) | O_NONBLOCK)) {
-                printf("Error: unable to make socket nonblocking. ERRNO is: %d\n", errno);
-                goto RUN_FAIL;
-            }
+            // TODO: I turned this off for testing, since it makes closing the socket after the reply is sent nontrivial.
+//            if (-1 == fcntl(sock_fd, F_SETFL, fcntl(sock_fd, F_GETFL) | O_NONBLOCK)) {
+//                printf("Error: unable to make socket nonblocking. ERRNO is: %d\n", errno);
+//                goto RUN_FAIL;
+//            }
         }
         
         // Receive data
@@ -121,7 +122,7 @@ void run(int descriptor) {
             dispatch_to_server(recv_buffer, (uint32_t)recv_length, NULL);
             
             // Send a canned reply
-            char* reply = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 52\r\nConnection: close\r\n\r\n<html><head></head><body>Hello world</body></html>";
+            char* reply = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Length: 51\r\nConnection: close\r\n\r\n<html><head></head><body>Hello world</body></html>\r\n";
 //            printf(reply);
             unsigned long reply_len = strlen(reply);
             strncpy(send_buffer, reply, reply_len);
@@ -137,7 +138,7 @@ void run(int descriptor) {
             }
             // For now, close the connection
             printf("Closing socket...\n");
-//            close(sock_fd);
+            close(sock_fd);
             sock_fd = -1;
         }
     }
